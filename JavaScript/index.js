@@ -76,6 +76,7 @@ possibleObjects.push(new Thing(200, 200, "dmg", 10))
 
 possibleEnemies.push(new Gun(0, 0, 0, 100, 3))
 possibleEnemies.push(new Bird(0, 0, 2, 100))
+possibleEnemies.push(new Shotgun(
 
 possibleBosses.push(new Boss(0, 0, 10, 300, 1))
 possibleBosses.push(new Boss(0, 0, 15, 400, 2))
