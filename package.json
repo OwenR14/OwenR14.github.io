@@ -1,0 +1,24 @@
+{
+  "name": "ti-project-brineydeep",
+  "version": "1.0.0",
+  "description": "\"# ti-project-brineydeep\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "yarn": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RHSTigerTech/ti-project-brineydeep.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RHSTigerTech/ti-project-brineydeep/issues"
+  },
+  "homepage": "https://github.com/RHSTigerTech/ti-project-brineydeep#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      margin: auto;
+    }
+
+    #c {
+      background-color: rgb(17, 17, 17);
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      margin: auto;
+      border: 4px solid grey
+    }
+
+    #healthBar {
+      width: 30%;
+      background-color: grey;
+      position: absolute;
+      right: 1000px;
+      left: 0px;
+      margin: auto;
+      margin-top: 50px;
+      z-index: 1;
+    }
+
+    #myBar {
+      width: 100%;
+      height: 30px;
+      background-color: rgb(221, 33, 33);
+      text-align: center;
+      font-size: 25px;
+    }
+
+    #hp {
+      color: black;
+      text-align: center;
+    }
+
+    #body {
+      background-color: rgb(15, 15, 66);
+    }
+
+    #imgParent {
+      display: none;
+    }
+
+    #inv {
+      display: none;
+      position: fixed;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 50%;
+      height: 50%;
+      background-color: bisque;
+    }
+
+    #invCnt {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 70%;
+    }
+
+    #startScreen {
+      position: absolute;
+      display: grid;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      background-blend-mode: soft-light;
+      border: 30px, black;
+    }
+
+    #title {
+      margin: auto;
+      margin-bottom: 0px;
+      color: #fefefe;
+      font-size: 160px;
+    }
+
+    #startButton {
+      width: 150px;
+      height: 50px;
+      font-size: 40px;
+      margin-top: 50px;
+      margin: auto;
+      color: black;
+      background-color: aqua;
+      border: #888;
+    }
+
+    #startButton:hover {
+      background-color: black;
+      color: #fefefe;
+    }
+
+    #gameScreen {
+      display: none;
+    }
+
+    #deathScreen {
+      position: absolute;
+      display: none;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      background-blend-mode: soft-light;
+      border: 30px, black;
+    }
+
+    #deathButton {
+      width: 170px;
+      height: 50px;
+      font-size: 40px;
+      margin: auto;
+      color: black;
+      background-color: aqua;
+      border: #888;
+    }
+
+    #deathButton:hover {
+      background-color: black;
+      color: #fefefe;
+    }
+
+    #attackGif {
+      position: relative;
+      top: -100px;
+      left: -100px;
+      display: none;
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body id="body">
+  <div id="startScreen">
+    <h1 id="title">Briney Deep</h1>
+    <button type="button" onclick="myFunction()" id="startButton">Start</button>
+    <script>
+      function myFunction() {
+        document.getElementById('startScreen').style.display = 'none';
+        document.getElementById('gameScreen').style.display = 'block';
+      }
+    </script>
+  </div>
+  <div id="deathScreen">
+    <h1 id="title">Succumbed to the Deep</h1>
+    <button type="button" onclick="deathFunction()" id="deathButton"> RETRY?</button>
+    <script>
+      function deathFunction() {
+        window.location.reload("refresh")
+      }
+    </script>
+  </div>
+  <div id="imgParent">
+    <img id="ball" src="./Tiles/Ball.png">
+    <img id="birdBoss" src="./Tiles/BirdBoss.png">
+    <img id="wood" src="./Tiles/Wood6.png">
+    <img id="plat" src="./Tiles/Test.png">
+    <img id="hpUp" src="./Tiles/HPup.png">
+    <img id="door" src="./Tiles/Door.gif">
+    <img id="wood" src="./Tiles/Wood6.png">
+    <img id="plat" src="./Tiles/Test.png">
+    <img id="door" src="./Tiles/Door.gif">
+    <img id="LDoor" src="./Tiles/LockedDoor.png">
+    <img id="playerLeft" src="./Tiles/playerLeft.png">
+    <img id="playerRight" src="./Tiles/playerRight.png">
+    <img id="gunPointed" src="./Tiles/gunPointed.png">
+    <img id="blunderbuss" src="./Tiles/Blunderbuss.png" />
+    <img id="gunPointedRight" src="./Tiles/gunPointedRight.png">
+    <img id="blunderbussRight" src="./Tiles/BlunderbussRight.png">
+    <img id="bird" src="./Tiles/Bird.png">
+    <img id="Sword" src="./Tiles/Sword.png">
+    <img id="Bard" src="./Tiles/Bardactinine.png">
+    <img id="Shotgun" src="./Tiles/Shotgun.png">
+    <img id="ShotgunRight" src="./Tiles/ShotgunRight.png">
+    <img id="ShotLeft" src="./Tiles/ShotLeft.png">
+    <img id="ShotRight" src="./Tiles/ShotRight.png">
+    <img id="PlayerGunLeft" src="./Tiles/PlayerGunLeft.png">
+    <img id="PlayerGunRight" src="./Tiles/PlayerGunRight.png">
+    <img id="brokenRuler" src="./Tiles/brokenRuler.png">
+  </div>
+  <div id="gameScreen">
+    <div id="healthBar">
+      <div id="myBar"></div>
+    </div>
+    <canvas id="c"> </canvas>
+    <div id="attackGif">
+      <img id="Attack" src="./Tiles/Attack.gif">
+      <img id="lAttack" src="./Tiles/ attackLeft.gif">
+    </div>
+    <div id="inv">
+      <div id="invCnt">
+        <p>inventory</p>
+      </div>
+    </div>
+
+    <script src="./JavaScript/sampleRooms.js"></script>
+    <script src="./JavaScript/map.js"></script>
+    <script src="./JavaScript/hitbox.js"></script>
+    <script src="./JavaScript/entity.js"></script>
+    <script src="./JavaScript/bullet.js"></script>
+    <script src="./JavaScript/thing.js"></script>
+    <script src="./JavaScript/enemy.js"></script>
+    <script src="./JavaScript/weapon.js"></script>
+    <script src="./JavaScript/enemy_types/gun.js"></script>
+    <script src="./JavaScript/enemy_types/bird.js"></script>
+    <script src="./Javascript/enemy_types/shotgun.js"></script>
+    <script src="./JavaScript/enemy_types/Boss.js"></script>
+    <script src="./JavaScript/door.js"></script>
+    <script src="./JavaScript/platform.js"></script>
+    <script src="./JavaScript/player.js"></script>
+    <script src="./JavaScript/room.js"></script>
+    <script src="./JavaScript/level.js"></script>
+    <script src="./JavaScript/NPC.js"></script>
+    <script src="./JavaScript/generator.js"></script>
+    <script src="./JavaScript/index.js"></script>
+  </div>
+</body>
+
+</html>
